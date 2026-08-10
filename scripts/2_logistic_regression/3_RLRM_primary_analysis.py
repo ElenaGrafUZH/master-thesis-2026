@@ -498,6 +498,14 @@ n_IS = (df_check['lower_IS'] == 0).sum()
 print("Number of patients with Matsuda Index >4:", n_IS, f"({n_IS/num_participants*100:.2f}%)")
 print("Number of patients with Matsuda Index <=4:", n_IR, f"({n_IR/num_participants*100:.2f}%)")
 
+#save numbers and percentages to csv
+matsuda_classification = pd.DataFrame({
+    "Matsuda_Index": [">4", "<=4"],
+    "Count": [n_IS, n_IR],
+    "Percentage": [n_IS/num_participants*100, n_IR/num_participants*100]
+})
+matsuda_classification.to_csv("output/4_Prediction_Model/3_Logistic_Regression/5_Final/matsuda_classification.csv", index=False)
+
 
 #participants close to cut off
 for margin in [0.25, 0.5, 1.0]:
