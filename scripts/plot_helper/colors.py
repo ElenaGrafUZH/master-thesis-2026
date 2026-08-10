@@ -1,0 +1,16 @@
+COLORS={
+    "blue1": "#1a6fdb",
+    "blue2": "#6fa8e8",
+    "orange1": "#db8a1a",
+    "orange2": "#edc27a",
+    "green1": "#9cc377",
+    "green2":  "#c4dba8",
+    "violet1": "#9754a1",
+    "violet2": "#c194c7",
+    "red1": "#c42a2a",
+    "red2": "#e08888",
+    "grey1": "#989898",
+    "grey2": "#c7c7c7",
+    "teal1": "#2a9d8f",
+    "teal2": "#86cfc6",
+}
