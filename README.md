@@ -4,8 +4,7 @@
 This repository contains the analysis code developed for my Master's thesis. 
 The thesis investigates smartwatch-derived lifestyle features in early postmenopausal and obese women with diabetes. 
 The analyses explore relationships among the feature domains sleep, activity, and HR & HRV, investigate underlying lifestyle dimensions
-using principal component analysis (PCA), and assess whether smartwatch-derived features can improve the classification of insulin sensitivity 
-status beyond anthropometric predictors. 
+using principal component analysis (PCA), and assess whether smartwatch-derived features can improve the classification of insulin sensitivity status beyond anthropometric predictors. 
 
 ## Repository Structure
 
@@ -41,7 +40,7 @@ The data used for this thesis originate from the DECLARED study and are subject 
 **No participant-level, raw, processed, or intermediate study data are included in this repository.**
 
 Consequently, the analyses cannot be reproduced from this repository alone without authorized access to the underlying study data. 
-The scripts are provided to document the preprocessing, feature engineering, statistical analysis, and prediction modeling workflow used for the thesis.
+The scripts are provided to document the preprocessing, feature engineering, statistical analysis, and prediction modeling workflow used for the thesis. Paths to data files as well as output folders must be adjusted accordingly in each file. 
 
 
 ## Software Requirements
