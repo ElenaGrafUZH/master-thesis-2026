@@ -14,6 +14,13 @@ config_path = project_root / "settings.ini"
 
 config.read(config_path)
 
+# !when on insel network add proxy settings
+# proxy = {
+#     "http": 'http://enumbergoeshere:passwordgoeshere@proxy-prod.insel.ch:8080',
+#     "https": 'http://enumbergoeshere:passwordgoeshere@proxy-prod.insel.ch:8080'
+# }
+
+
   
 #* =========================
 #* 1. DOWNLOAD FILE
@@ -34,7 +41,7 @@ def download_file(record, field, event, output_dir):
             'returnFormat': 'json'
         }
 
-    r = requests.post(config['REDCap']['api_url'], data=data, timeout=600)
+    r = requests.post(config['REDCap']['api_url'], data=data, timeout=600)#, proxies=proxy)
   
     if r.status_code == 200 and len(r.content) > 0:
 
@@ -65,7 +72,7 @@ def get_record_ids():
         "fields": ["study_id"],   # use your actual record ID field name
     }
 
-    r = requests.post(config['REDCap']['api_url'], data=data, timeout=100)
+    r = requests.post(config['REDCap']['api_url'], data=data, timeout=100)#,proxies=proxy)
     r.raise_for_status()
 
     raw_records = r.json()

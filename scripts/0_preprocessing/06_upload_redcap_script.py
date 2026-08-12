@@ -27,6 +27,13 @@ def api_file_upload(file_path, field_name, study_id, event_name):
     """
     
     print(f"Uploading {file_path.split('_')[3]} to REDCap with field name {field_name}")
+
+     # !when on insel network add proxy settings
+        # proxy = {
+        #     "http": 'http://enumbergoeshere:passwordgoeshere@proxy-prod.insel.ch:8080',
+        #     "https": 'http://enumbergoeshere:passwordgoeshere@proxy-prod.insel.ch:8080'
+        # }
+    
     
     data = {
         'token': config['REDCap']['api_token'],
@@ -45,7 +52,7 @@ def api_file_upload(file_path, field_name, study_id, event_name):
     # print(f"Data to be sent: {data}, {files}")
 
     #POST request to upload file
-    r = requests.post(config['REDCap']['api_url'], data=data, files=files, timeout=1000)
+    r = requests.post(config['REDCap']['api_url'], data=data, files=files, timeout=1000) #, proxies=proxy)
 
   
     if r.status_code == 200:
@@ -96,7 +103,7 @@ def api_date_upload(study_id, event_name, start_date, end_date):
 
 def upload_to_redcap():
     """
-    Upload cleaned CSV files to REDCap using the API. Displays progress and elapsed time.
+    Upload cleaned and cut CSV files to REDCap using the API. Displays progress and elapsed time.
     """
     #for each study ID get all csv files per visit (V1 and V2) plus smartwatch start and end date time
     #for V1 data:
@@ -106,7 +113,7 @@ def upload_to_redcap():
 
     total_start_time = time.time()
     parser = argparse.ArgumentParser(description="Upload CSV to REDCap")
-    parser.add_argument("--folder", required=True, help="Path to the folder containing merged & cleaned CSV files")
+    parser.add_argument("--folder", required=True, help="Path to the folder containing merged & cleaned & cut CSV files")
     parser.add_argument("--redcap_fields", required=True, help="Path to the REDCap fields mapping file")
     parser.add_argument("--dates", required=True, help="Path to the dates file of 3_date_extraction step")
 
