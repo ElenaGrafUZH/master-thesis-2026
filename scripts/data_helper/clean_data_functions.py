@@ -5,7 +5,7 @@ import configparser
 import numpy as np
 
 config = configparser.ConfigParser()
-#! move back to "../../settings.ini" for .ipynb files
+
 config.read("../../settings.ini")
 
 def clean_data_baseline_optimized(dfs):
@@ -121,7 +121,6 @@ def clean_data_baseline_optimized(dfs):
 
 def clean_data_no_data_days_optimized(dfs):
     """Drop days where no data was collected"""
-    #! move back to "../../data/checks/df_daily_summary_no_data.csv" for .ipynb files
     df_no_data = pd.read_csv("../../data/checks/df_daily_summary_no_data_2026-07-08.csv")
     # Normalise date format in df_no_data once before the loop
     df_no_data["date_no_data"] = pd.to_datetime(
